@@ -8,7 +8,7 @@ class AVLTreeApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'AVL Tree App',
+      title: ' AVL',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
@@ -33,7 +33,7 @@ class _AVLTreeScreenState extends State<AVLTreeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('AVL Tree'),
+        title: Text('Arbol AVl'),
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -44,7 +44,7 @@ class _AVLTreeScreenState extends State<AVLTreeScreen> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
                   Text(
-                    'AVL Tree Visualization',
+                    'Visualización del arbol ',
                     style: TextStyle(fontSize: 24.0, fontWeight: FontWeight.bold),
                   ),
                   SizedBox(height: 20.0),
@@ -59,7 +59,7 @@ class _AVLTreeScreenState extends State<AVLTreeScreen> {
             TextField(
               controller: _controller,
               decoration: InputDecoration(
-                labelText: 'Enter tree data',
+                labelText: 'ingresar datos del arbol',
                 border: OutlineInputBorder(),
               ),
               onChanged: (value) {
@@ -76,7 +76,7 @@ class _AVLTreeScreenState extends State<AVLTreeScreen> {
                   children: [
                     ElevatedButton(
                       onPressed: _buildAVLTree,
-                      child: Text('Build Tree'),
+                      child: Text('Ingresar dato'),
                     ),
                     SizedBox(height: 10.0),
                     ElevatedButton(
