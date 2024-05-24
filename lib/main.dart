@@ -33,7 +33,7 @@ class _AVLTreeScreenState extends State<AVLTreeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Arbol AVl'),
+        title: Text('Arbol AVL'),
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -59,7 +59,7 @@ class _AVLTreeScreenState extends State<AVLTreeScreen> {
             TextField(
               controller: _controller,
               decoration: InputDecoration(
-                labelText: 'ingresar datos del arbol',
+                labelText: 'ingresar datos',
                 border: OutlineInputBorder(),
               ),
               onChanged: (value) {
@@ -76,7 +76,7 @@ class _AVLTreeScreenState extends State<AVLTreeScreen> {
                   children: [
                     ElevatedButton(
                       onPressed: _buildAVLTree,
-                      child: Text('Ingresar dato'),
+                      child: Text('Ingresar'),
                     ),
                     SizedBox(height: 10.0),
                     ElevatedButton(
