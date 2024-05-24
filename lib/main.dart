@@ -8,7 +8,7 @@ class AVLTreeApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: ' AVL',
+      title: 'AVL',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
@@ -24,6 +24,8 @@ class AVLTreeScreen extends StatefulWidget {
 
 class _AVLTreeScreenState extends State<AVLTreeScreen> {
   TextEditingController _controller = TextEditingController();
+  TextEditingController _controllerOldValue = TextEditingController();
+  TextEditingController _controllerNewValue = TextEditingController();
   String _input = '';
   AVLNode? _root;
   TreePainter? _treePainter;
@@ -44,7 +46,7 @@ class _AVLTreeScreenState extends State<AVLTreeScreen> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
                   Text(
-                    'Visualización del arbol ',
+                    'Visualización del árbol',
                     style: TextStyle(fontSize: 24.0, fontWeight: FontWeight.bold),
                   ),
                   SizedBox(height: 20.0),
@@ -59,7 +61,7 @@ class _AVLTreeScreenState extends State<AVLTreeScreen> {
             TextField(
               controller: _controller,
               decoration: InputDecoration(
-                labelText: 'ingresar datos',
+                labelText: 'Ingresar datos',
                 border: OutlineInputBorder(),
               ),
               onChanged: (value) {
@@ -109,10 +111,15 @@ class _AVLTreeScreenState extends State<AVLTreeScreen> {
                 ),
               ],
             ),
+            SizedBox(height: 10.0),
+            Text(
+              'Para modificar un valor (valor actual, valor nuevo) y luego toque el botón "Modificar Valor".',
+              style: TextStyle(fontSize: 14.0),
+            ),
             SizedBox(height: 20.0),
             if (_traversalResult != null) ...[
               Text(
-                'Traversal result: ${_traversalResult!.join(", ")}',
+                'Resultado del recorrido: ${_traversalResult!.join(", ")}',
                 style: TextStyle(fontSize: 16.0),
               ),
             ],
@@ -457,3 +464,4 @@ class TreePainter extends CustomPainter {
     return true;
   }
 }
+
