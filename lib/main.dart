@@ -4,6 +4,7 @@ void main() {
   runApp(AVLTreeApp());
 }
 
+// Clase principal que configura la aplicación Flutter
 class AVLTreeApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -17,6 +18,7 @@ class AVLTreeApp extends StatelessWidget {
   }
 }
 
+// Pantalla principal que muestra el árbol AVL y las opciones de interacción
 class AVLTreeScreen extends StatefulWidget {
   @override
   _AVLTreeScreenState createState() => _AVLTreeScreenState();
@@ -24,8 +26,6 @@ class AVLTreeScreen extends StatefulWidget {
 
 class _AVLTreeScreenState extends State<AVLTreeScreen> {
   TextEditingController _controller = TextEditingController();
-  TextEditingController _controllerOldValue = TextEditingController();
-  TextEditingController _controllerNewValue = TextEditingController();
   String _input = '';
   AVLNode? _root;
   TreePainter? _treePainter;
@@ -129,6 +129,7 @@ class _AVLTreeScreenState extends State<AVLTreeScreen> {
     );
   }
 
+  // Construye el árbol AVL a partir de los valores ingresados
   void _buildAVLTree() {
     if (_input.isEmpty) return;
 
@@ -146,6 +147,7 @@ class _AVLTreeScreenState extends State<AVLTreeScreen> {
     });
   }
 
+  // Actualiza la visualización del recorrido del árbol
   void _updateTreeTraversal(List<int> Function() traversal) {
     if (_root != null) {
       setState(() {
@@ -154,6 +156,7 @@ class _AVLTreeScreenState extends State<AVLTreeScreen> {
     }
   }
 
+  // Elimina un valor del árbol
   void _deleteValue() {
     if (_input.isEmpty) return;
 
@@ -168,6 +171,7 @@ class _AVLTreeScreenState extends State<AVLTreeScreen> {
     }
   }
 
+  // Función auxiliar para eliminar un nodo del árbol
   AVLNode? _deleteNode(AVLNode? root, int valueToDelete) {
     if (root == null) return root;
 
@@ -215,6 +219,7 @@ class _AVLTreeScreenState extends State<AVLTreeScreen> {
     return root;
   }
 
+  // Encuentra el valor mínimo en el subárbol
   int _minValue(AVLNode node) {
     int minValue = node.value;
     while (node.leftChild != null) {
@@ -224,6 +229,7 @@ class _AVLTreeScreenState extends State<AVLTreeScreen> {
     return minValue;
   }
 
+  // Modifica un valor en el árbol
   void _modifyValue() {
     if (_input.isEmpty) return;
 
@@ -288,6 +294,7 @@ class _AVLTreeScreenState extends State<AVLTreeScreen> {
   }
 }
 
+// Clase que representa un nodo en el árbol AVL
 class AVLNode {
   int value;
   int height;
@@ -422,6 +429,7 @@ class AVLNode {
   }
 }
 
+// Clase para pintar el árbol en la pantalla
 class TreePainter extends CustomPainter {
   AVLNode? _root;
 
@@ -464,4 +472,3 @@ class TreePainter extends CustomPainter {
     return true;
   }
 }
-
