@@ -62,7 +62,7 @@ class _AVLTreeScreenState extends State<AVLTreeScreen> {
               controller: _controller,
               decoration: InputDecoration(
                 labelText: 'Ingresar datos',
-                border: OutlineInputBorder(),
+
               ),
               onChanged: (value) {
                 setState(() {
@@ -77,23 +77,43 @@ class _AVLTreeScreenState extends State<AVLTreeScreen> {
                 Column(
                   children: [
                     ElevatedButton(
-                      onPressed: _buildAVLTree,
-                      child: Text('Ingresar'),
+                        onPressed: _buildAVLTree,
+                        child: Text('Ingresar'),
+                        style: ElevatedButton.styleFrom(
+                          primary: Colors.green,// color del fondo
+                          onPrimary:Colors.black,// color del texto
+                          textStyle: TextStyle(fontSize: 18),//tamaño del texto
+                        )
                     ),
                     SizedBox(height: 10.0),
                     ElevatedButton(
                       onPressed: _root != null ? () => _updateTreeTraversal(_root!.postOrderTraversal) : null,
                       child: Text('Post-order'),
+                      style: ElevatedButton.styleFrom(
+                          primary: Colors.orange,//color del fondo
+                          onPrimary: Colors.black, //color del texto
+                          textStyle: TextStyle(fontSize: 18) //tamaño del texto
+                      ),
                     ),
                   ],
                 ),
                 ElevatedButton(
                   onPressed: _root != null ? () => _updateTreeTraversal(_root!.inOrderTraversal) : null,
                   child: Text('In-order'),
+                  style: ElevatedButton.styleFrom(
+                      primary: Colors.orange,//color del fondo
+                      onPrimary: Colors.black, //color del texto
+                      textStyle: TextStyle(fontSize: 18) //tamaño del texto
+                  ),
                 ),
                 ElevatedButton(
                   onPressed: _root != null ? () => _updateTreeTraversal(_root!.preOrderTraversal) : null,
                   child: Text('Pre-order'),
+                  style: ElevatedButton.styleFrom(
+                      primary: Colors.orange,//color del fondo
+                      onPrimary: Colors.black, //color del texto
+                      textStyle: TextStyle(fontSize: 18) //tamaño del texto
+                  ),
                 ),
               ],
             ),
@@ -104,10 +124,20 @@ class _AVLTreeScreenState extends State<AVLTreeScreen> {
                 ElevatedButton(
                   onPressed: _deleteValue,
                   child: Text('Eliminar Valor'),
+                  style: ElevatedButton.styleFrom(
+                      primary: Colors.red,//color del fondo
+                      onPrimary: Colors.black, //color del texto
+                      textStyle: TextStyle(fontSize: 18) //tamaño del texto
+                  ),
                 ),
                 ElevatedButton(
                   onPressed: _modifyValue,
                   child: Text('Modificar Valor'),
+                  style: ElevatedButton.styleFrom(
+                      primary: Colors.brown,//color del fondo
+                      onPrimary: Colors.black, //color del texto
+                      textStyle: TextStyle(fontSize: 18) //tamaño del texto
+                  ),
                 ),
               ],
             ),
@@ -115,6 +145,7 @@ class _AVLTreeScreenState extends State<AVLTreeScreen> {
             Text(
               'Para modificar un valor (valor actual, valor nuevo) y luego toque el botón "Modificar Valor".',
               style: TextStyle(fontSize: 14.0),
+
             ),
             SizedBox(height: 20.0),
             if (_traversalResult != null) ...[
@@ -444,13 +475,13 @@ class TreePainter extends CustomPainter {
 
   void _drawNode(Canvas canvas, AVLNode node, double x, double y, double offsetX) {
     Paint paint = Paint()
-      ..color = Colors.black
+      ..color = Colors.deepPurpleAccent // cambiar color de los circulos y lineas
       ..strokeWidth = 2
       ..style = PaintingStyle.stroke;
 
     canvas.drawCircle(Offset(x, y), 20, paint);
     TextSpan span = TextSpan(
-      style: TextStyle(color: Colors.black, fontSize: 14),
+      style: TextStyle(color: Colors.black, fontSize: 16), //cambiar el color del texto
       text: node.value.toString(),
     );
     TextPainter tp = TextPainter(text: span, textAlign: TextAlign.center, textDirection: TextDirection.ltr);
